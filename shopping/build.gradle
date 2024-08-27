@@ -1,0 +1,53 @@
+plugins {
+    id('java')
+    id('war')
+}
+
+group = 'org.spend'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+dependencies {
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation("ch.qos.logback:logback-classic:1.5.6")
+    implementation("org.apache.logging.log4j:log4j-to-slf4j:2.21.1")
+    compileOnly("org.projectlombok:lombok:latest.release")
+    annotationProcessor("org.projectlombok:lombok:latest.release")
+    testCompileOnly("org.projectlombok:lombok:latest.release")
+    testAnnotationProcessor("org.projectlombok:lombok:latest.release")
+}
+
+def tomcatHome = '../apache-tomcat-9.0.91'
+
+
+tasks.war {
+    from 'src/main/webapp'
+}
+
+tasks.register('deployToTomcat', Copy) {
+    dependsOn war
+    into "${tomcatHome}/webapps"
+    from war.archiveFile
+}
+
+tasks.register('startTomcat', Exec) {
+    dependsOn deployToTomcat
+    commandLine "${tomcatHome}/bin/startup.sh"
+}
+
+tasks.register('deployAndRunTomcat') {
+    dependsOn 'deployToTomcat'
+    finalizedBy 'startTomcat'
+}
+
+tasks.register('stopTomcat', Exec) {
+    commandLine "${tomcatHome}/bin/shutdown.sh"
+}
