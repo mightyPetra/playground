@@ -25,7 +25,7 @@ dependencies {
     testAnnotationProcessor("org.projectlombok:lombok:latest.release")
 }
 
-def tomcatHome = '../apache-tomcat-9.0.91'
+def tomcatHome = '../apache-tomcat-9.0.95'
 
 
 tasks.war {

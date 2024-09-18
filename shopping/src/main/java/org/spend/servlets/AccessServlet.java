@@ -23,8 +23,8 @@ public class AccessServlet extends HttpServlet {
     private static final String LOGIN_ACTION = "login";
     private static final String LOGOUT_ACTION = "logout";
     private static final String REGISTER_ACTION = "register";
-    public static final String LOGIN_HTML = "/shopping/login.html";
-    public static final String SHOPPING_CATALOG_HTML = "/shopping/catalog.html";
+    private static final String LOGIN_HTML = "/shopping/login.html";
+    private static final String SHOPPING_CATALOG_HTML = "/shopping/catalog.html";
 
 
     private UserManager userManager;
@@ -83,6 +83,7 @@ public class AccessServlet extends HttpServlet {
             User registeringUser = createUser(firstName, lastName, email, password);
             userManager.register(registeringUser);
             response.sendRedirect(LOGIN_HTML);
+            return;
         } catch (InvalidParameterException ex) {
             response.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());
         }
@@ -102,6 +103,7 @@ public class AccessServlet extends HttpServlet {
             session = request.getSession(true);
             session.setAttribute(EMAIL, loggedInUser.getEmail());
             response.sendRedirect(SHOPPING_CATALOG_HTML);
+            return;
         } catch (InvalidParameterException ex) {
             if (!response.isCommitted()) {
                 response.sendError(HttpServletResponse.SC_BAD_REQUEST, ex.getMessage());

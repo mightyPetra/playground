@@ -15,4 +15,12 @@
     <url-pattern>/access/*</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>CartServlet</servlet-name>
+    <servlet-class>org.spend.servlets.CartServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CartServlet</servlet-name>
+    <url-pattern>/cart/*</url-pattern>
+  </servlet-mapping>
 </web-app>
