@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Catalog</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+		
+	<body>
+		<nav class="navbar">
+			<form>
+				<button class="cart-button" name="action" type="submit" formmethod="get" formaction="/shopping/cart"  value="cart">My Cart</button>
+				<button class="cart-button" name="action" type="submit" formmethod="post" formaction="/shopping/access"  value="logout">Logout</button>
+			</form>
+		</nav>
+		<h1>Catalog</h1>
+	
+		<div class="catalog">
+			
+			<form name="catalogItem" method="post" action="/shopping/cart">
+				<div class="item">
+					<figure>
+						<img class="cart-img" src="https://images.unsplash.com/photo-1710878447715-5d4a1ca12456?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+						<figcaption>Unicorn - &#8364;25</figcaption>
+					</figure>
+					<input type="hidden" name="imgAddress" value="https://images.unsplash.com/photo-1710878447715-5d4a1ca12456?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+					<input type="hidden" name="itemName" value="Unicorn">
+					<input type="hidden" name="itemPrice" value="25">
+					<button class="cart-button" name="action" type="submit">Add to Cart</button>
+				</div>
+			</form>
+			
+			
+			<form name="catalogItem" method="post" action="/shopping/cart">
+				<div class="item">
+					<figure>
+						<img class="cart-img" src="https://images.unsplash.com/photo-1558795353-c39bb028827c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+						<figcaption>Wise Advice - &#8364;15</figcaption>
+					</figure>
+					<input type="hidden" name="imgAddress" value="https://images.unsplash.com/photo-1558795353-c39bb028827c?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+					<input type="hidden" name="itemName" value="Wise Advice">
+					<input type="hidden" name="itemPrice" value="15">
+					<button class="cart-button" name="action" type="submit">Add to Cart</button>
+				</div>
+			</form>
+			
+			<form name="catalogItem" method="post" action="/shopping/cart">
+				<div class="item">
+					<figure>
+						<img class="cart-img"
+							 src="https://images.unsplash.com/photo-1520549421221-3e77d246063d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+						>
+						<figcaption>Rainbow - &#8364;100</figcaption>
+					</figure>
+					<input type="hidden" name="imgAddress" value="https://images.unsplash.com/photo-1520549421221-3e77d246063d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+					<input type="hidden" name="itemName" value="Rainbow">
+					<input type="hidden" name="itemPrice" value="100">
+					<button class="cart-button" name="action" type="submit">Add to Cart</button>
+				</div>
+			</form>
+		</div>
+	</body>
+
+</html>
